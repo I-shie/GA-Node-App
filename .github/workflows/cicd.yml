@@ -1,15 +1,6 @@
 name: CI/CD Pipeline
 on: [push]
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      -  name: Checkout My Repo
-         uses: actions/checkout@v2
-         with:
-           path: ./my-app
-      -  name: Ls Repo
-         run: ls ./my-app
   Install-Node:
       runs-on: ubuntu-latest
       steps:
@@ -30,6 +21,8 @@ jobs:
              npm i express
         -  name: Run App
            run: node ./my-app/server.js
+        -  name: Stop Server
+           run: kill 
              
          
          
