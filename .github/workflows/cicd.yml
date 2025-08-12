@@ -23,7 +23,7 @@ jobs:
            run: |
              node ./my-app/server.js & PID=$!
              sleep 15
-             kill PID 
+             kill $PID 
              
          
          
