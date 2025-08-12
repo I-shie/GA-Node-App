@@ -10,7 +10,27 @@ jobs:
            path: ./my-app
       -  name: Ls Repo
          run: ls ./my-app
-           
+  Install-Node:
+      runs-on: ubuntu-latest
+      steps:
+        -  name: Checkout My Repo
+           uses: actions/checkout@v2
+           with:
+             path: ./my-app
+        -  name: Install node
+           run: |
+             sudo apt install nodejs
+             node -v
+        -  name: Install npm
+           run: |
+             sudo apt install npm
+             npm -v
+        -  name: Install dependencies
+           run: |
+             npm i express
+        -  name: Run App
+           run: node ./my-app/server.js
+             
          
          
     
